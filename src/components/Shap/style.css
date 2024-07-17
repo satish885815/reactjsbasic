@@ -1,0 +1,22 @@
+.boxes {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 200px;
+  gap: 20px;
+  margin: 30px;
+}
+.box {
+  border: 1px solid black;
+  width: 40px;
+  height: 40px;
+}
+
+.visible {
+  opacity: 1;
+}
+.hidden {
+  opacity: 0;
+}
+.selected {
+  background-color: green;
+}

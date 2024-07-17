@@ -1,0 +1,93 @@
+.notifications {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  position: relative;
+}
+
+.arrow-up {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid #fff;
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+}
+
+.tabs button {
+  flex: 1;
+  padding: 12px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: border-bottom-color 0.3s;
+}
+
+.tabs button.active {
+  border-bottom-color: #ff9900;
+}
+
+.notifications-list {
+  padding: 16px;
+}
+
+.notification {
+  border-bottom: 1px solid #ddd;
+  padding: 16px 0;
+}
+
+.notification:last-child {
+  border-bottom: none;
+}
+
+.notification-header {
+  display: flex;
+  align-items: center;
+}
+
+.status-icon {
+  margin-right: 8px;
+}
+
+.message {
+  flex: 1;
+}
+
+.close-icon {
+  cursor: pointer;
+  margin-left: 8px;
+}
+
+.notification img {
+  width: 100%;
+  height: auto;
+  margin: 16px 0;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.days-ago {
+  font-size: 12px;
+  color: #666;
+}
+
+.promo-message {
+  font-size: 12px;
+  color: #666;
+}
