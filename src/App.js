@@ -3,11 +3,13 @@ import ClassClick from "./components/ClassClick";
 import ClassCounter from "./components/ClassCounter";
 import Counter from "./components/Counter";
 import EventBind from "./components/EventBind";
+import FRParent from "./components/ForwordRef/FRParent";
 import FunctionClick from "./components/FunctionClick";
 import Great from "./components/Great";
 import Notifications from "./components/Notification";
 import PropsExample from "./components/PropsExample";
 import ParentCom from "./components/PureComponent/ParentCom";
+import InputRef from "./components/Ref/InputRef";
 import Shap from "./components/Shap/Shap";
 import StateExample from "./components/StateExample";
 import ParentComponent from "./components/useCallback/ParentComponent";
@@ -33,7 +35,9 @@ function App() {
       {/* <Shap data={Box_Data} /> */}
       {/* <Notifications /> */}
       {/* <ParentComponent /> */}
-      <ParentCom />
+      {/* <ParentCom /> */}
+      {/* <InputRef /> */}
+      <FRParent />
     </div>
   );
 }
