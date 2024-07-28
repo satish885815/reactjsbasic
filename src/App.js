@@ -1,6 +1,8 @@
+import React from "react";
 import "./App.css";
 import ClassClick from "./components/ClassClick";
 import ClassCounter from "./components/ClassCounter";
+import ComponentC from "./components/Context/ComponentC";
 import Counter from "./components/Counter";
 import EventBind from "./components/EventBind";
 import FRParent from "./components/ForwordRef/FRParent";
@@ -14,6 +16,7 @@ import Shap from "./components/Shap/Shap";
 import StateExample from "./components/StateExample";
 import ParentComponent from "./components/useCallback/ParentComponent";
 import Welcome from "./components/Welcome";
+import { UserProvider } from "./components/Context/userContex";
 
 function App() {
   const Box_Data = [
@@ -37,7 +40,10 @@ function App() {
       {/* <ParentComponent /> */}
       {/* <ParentCom /> */}
       {/* <InputRef /> */}
-      <FRParent />
+      {/* <FRParent /> */}
+      <UserProvider value="Satish">
+        <ComponentC />
+      </UserProvider>
     </div>
   );
 }
