@@ -17,6 +17,11 @@ import StateExample from "./components/StateExample";
 import ParentComponent from "./components/useCallback/ParentComponent";
 import Welcome from "./components/Welcome";
 import { UserProvider } from "./components/Context/userContex";
+import ComponentHookC from "./components/ContextHook/ComponentHookC";
+import UseMemo from "./components/UseMemo/UseMemo";
+import CakeContainer from "./components/redux/CakeContainer";
+import { Provider } from "react-redux";
+import store from "./components/redux/Cake/store";
 
 function App() {
   const Box_Data = [
@@ -35,15 +40,22 @@ function App() {
       {/* <EventBind /> */}
       {/* <Counter /> */}
       {/* <ClassCounter /> */}
-      {/* <Shap data={Box_Data} /> */}
+      <Shap data={Box_Data} />
       {/* <Notifications /> */}
       {/* <ParentComponent /> */}
       {/* <ParentCom /> */}
       {/* <InputRef /> */}
       {/* <FRParent /> */}
-      <UserProvider value="Satish">
+      {/* <UserProvider value="Satish">
         <ComponentC />
-      </UserProvider>
+      </UserProvider> */}
+      {/* <UserProvider value="Hello Guys">
+        <ComponentHookC />
+      </UserProvider> */}
+      {/* <UseMemo /> */}
+      {/* <Provider store={store}>
+        <CakeContainer />
+      </Provider> */}
     </div>
   );
 }
