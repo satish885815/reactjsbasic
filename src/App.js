@@ -22,6 +22,7 @@ import UseMemo from "./components/UseMemo/UseMemo";
 import CakeContainer from "./components/redux/CakeContainer";
 import { Provider } from "react-redux";
 import store from "./components/redux/Cake/store";
+import Main from "./components/InfiniteScroller/Main";
 
 function App() {
   const Box_Data = [
@@ -56,6 +57,7 @@ function App() {
       {/* <Provider store={store}>
         <CakeContainer />
       </Provider> */}
+      {/* <Main /> */}
     </div>
   );
 }
