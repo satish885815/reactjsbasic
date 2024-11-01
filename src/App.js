@@ -23,6 +23,8 @@ import CakeContainer from "./components/redux/CakeContainer";
 import { Provider } from "react-redux";
 import store from "./components/redux/Cake/store";
 import Main from "./components/InfiniteScroller/Main";
+import MyComponent from "./components/MyComponet";
+import ImageSlider from "./components/ImageSlider/ImageSlider";
 
 function App() {
   const Box_Data = [
@@ -41,7 +43,7 @@ function App() {
       {/* <EventBind /> */}
       {/* <Counter /> */}
       {/* <ClassCounter /> */}
-      <Shap data={Box_Data} />
+      {/* <Shap data={Box_Data} /> */}
       {/* <Notifications /> */}
       {/* <ParentComponent /> */}
       {/* <ParentCom /> */}
@@ -58,6 +60,8 @@ function App() {
         <CakeContainer />
       </Provider> */}
       {/* <Main /> */}
+      {/* <MyComponent /> */}
+      <ImageSlider />
     </div>
   );
 }
