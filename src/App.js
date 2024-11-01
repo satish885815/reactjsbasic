@@ -26,6 +26,7 @@ import Main from "./components/InfiniteScroller/Main";
 import MyComponent from "./components/MyComponet";
 import ImageSlider from "./components/ImageSlider/ImageSlider";
 import ProgressBar from "./components/ProgressBar/ProgressBar";
+import GridSelector from "./components/Grid/GridSelector";
 
 function App() {
   const Box_Data = [
@@ -74,7 +75,7 @@ function App() {
       {/* <Main /> */}
       {/* <MyComponent /> */}
       {/* <ImageSlider /> */}
-      <div>
+      {/* <div>
         <ProgressBar
           value={value}
           onComplete={() => {
@@ -82,7 +83,8 @@ function App() {
           }}
         />
         <span>{success ? "Completed" : "Loading..."}</span>
-      </div>
+      </div> */}
+      <GridSelector />
     </div>
   );
 }
