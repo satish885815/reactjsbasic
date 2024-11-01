@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./App.css";
 import ClassClick from "./components/ClassClick";
 import ClassCounter from "./components/ClassCounter";
@@ -25,6 +25,7 @@ import store from "./components/redux/Cake/store";
 import Main from "./components/InfiniteScroller/Main";
 import MyComponent from "./components/MyComponet";
 import ImageSlider from "./components/ImageSlider/ImageSlider";
+import ProgressBar from "./components/ProgressBar/ProgressBar";
 
 function App() {
   const Box_Data = [
@@ -32,6 +33,17 @@ function App() {
     [1, 0, 0],
     [1, 1, 1],
   ];
+
+  const [value, setValue] = useState(0);
+  const [success, setSuccess] = useState(false);
+
+  useEffect(() => {
+    setInterval(() => {
+      setValue((preValue) => {
+        return preValue + 1;
+      });
+    }, 100);
+  }, []);
   return (
     <div className="App">
       {/* <Great />
@@ -61,7 +73,16 @@ function App() {
       </Provider> */}
       {/* <Main /> */}
       {/* <MyComponent /> */}
-      <ImageSlider />
+      {/* <ImageSlider /> */}
+      <div>
+        <ProgressBar
+          value={value}
+          onComplete={() => {
+            setSuccess(true);
+          }}
+        />
+        <span>{success ? "Completed" : "Loading..."}</span>
+      </div>
     </div>
   );
 }
