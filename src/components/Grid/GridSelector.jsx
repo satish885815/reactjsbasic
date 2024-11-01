@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 
 const config = [
   [1, 1, 1],
@@ -9,7 +9,7 @@ const config = [
 function GridSelector() {
   const shape = useMemo(() => config.flat(Infinity), []);
   const [order, setOrder] = useState(new Set());
-  function activeShape(event) {
+  const activeShape = useCallback((event) => {
     const { target } = event;
     const index = target.getAttribute("data-index");
     const status = target.getAttribute("data-status");
@@ -24,7 +24,7 @@ function GridSelector() {
       }
       return newOrder;
     });
-  }
+  }, []);
 
   function deSelecting() {
     const interval = setInterval(() => {
