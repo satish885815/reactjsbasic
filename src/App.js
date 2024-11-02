@@ -27,24 +27,29 @@ import MyComponent from "./components/MyComponet";
 import ImageSlider from "./components/ImageSlider/ImageSlider";
 import ProgressBar from "./components/ProgressBar/ProgressBar";
 import GridSelector from "./components/Grid/GridSelector";
+import Folder from "./components/fileExpoler/Folder";
+import explorer from "./components/fileExpoler/data";
 
 function App() {
-  const Box_Data = [
-    [1, 1, 1],
-    [1, 0, 0],
-    [1, 1, 1],
-  ];
+  // const Box_Data = [
+  //   [1, 1, 1],
+  //   [1, 0, 0],
+  //   [1, 1, 1],
+  // ];
 
-  const [value, setValue] = useState(0);
-  const [success, setSuccess] = useState(false);
+  // const [value, setValue] = useState(0);
+  // const [success, setSuccess] = useState(false);
 
-  useEffect(() => {
-    setInterval(() => {
-      setValue((preValue) => {
-        return preValue + 1;
-      });
-    }, 100);
-  }, []);
+  // useEffect(() => {
+  //   setInterval(() => {
+  //     setValue((preValue) => {
+  //       return preValue + 1;
+  //     });
+  //   }, 100);
+  // }, []);
+
+  const [explorerData, setExplorerData] = useState(explorer);
+
   return (
     <div className="App">
       {/* <Great />
@@ -84,7 +89,11 @@ function App() {
         />
         <span>{success ? "Completed" : "Loading..."}</span>
       </div> */}
-      <GridSelector />
+      {/* <GridSelector /> */}
+      <div class="w-96 ml-5">
+        <h3 class="text-left">File Explorer</h3>
+        <Folder explorer={explorerData} />
+      </div>
     </div>
   );
 }
