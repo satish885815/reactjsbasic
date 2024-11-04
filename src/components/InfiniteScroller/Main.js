@@ -8,32 +8,21 @@ function Main() {
   const [error, setError] = useState("");
 
   const getData = async () => {
-    setLoading(false);
     const res = await fetch(
       `https://jsonplaceholder.typicode.com/posts?_limit=12&page=${page}`
     );
-    const data = await res.json();
-
-    setData((prev) => [...prev, ...data]);
-    //   .then((res) => res.json())
-    //   .then((data) => setData(data))
-    //   .catch((err) => setError(err.message));
+    const result = await res.json();
+    setData((prev) => {
+      return [...prev, ...result];
+    });
   };
 
-  const handelInfiniteScroll = async () => {
-    // console.log("scrollHeight" + document.documentElement.scrollHeight);
-    // console.log("innerHeight" + window.innerHeight);
-    // console.log("scrollTop" + document.documentElement.scrollTop);
-    try {
-      if (
-        window.innerHeight + document.documentElement.scrollTop + 1 >=
-        document.documentElement.scrollHeight
-      ) {
-        setLoading(true);
-        setPage((prev) => prev + 1);
-      }
-    } catch (error) {
-      console.log(error);
+  const handelInfiniteScroll = () => {
+    if (
+      window.innerHeight + document.documentElement.scrollTop + 1 >
+      document.documentElement.scrollHeight
+    ) {
+      setPage((prev) => prev + 1);
     }
   };
 
@@ -43,8 +32,10 @@ function Main() {
 
   useEffect(() => {
     window.addEventListener("scroll", handelInfiniteScroll);
-    return () => window.removeEventListener("scroll", handelInfiniteScroll);
-  }, []);
+    return () => {
+      window.removeEventListener("scroll", handelInfiniteScroll);
+    };
+  });
 
   return (
     <div>
@@ -53,4 +44,4 @@ function Main() {
   );
 }
 
-export default Main;
+export default React.memo(Main);

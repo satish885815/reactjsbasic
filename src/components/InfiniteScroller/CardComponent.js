@@ -7,9 +7,9 @@ function CardComponent({ data }) {
     <CardContainer>
       <Heading>List Of Card</Heading>
       <MovieCardContainer>
-        {data.map((ele) => {
+        {data.map((ele, index) => {
           return (
-            <div key={ele.id}>
+            <div key={ele.id + index}>
               <Card data={ele} />
             </div>
           );
