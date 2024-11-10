@@ -1,4 +1,4 @@
-import React, { useMemo, useState, useEffect } from "react";
+import React, { useCallback, useMemo, useState } from "react";
 
 const config = [
   [1, 1, 1],
@@ -9,9 +9,7 @@ const config = [
 function GridSelector() {
   const shape = useMemo(() => config.flat(Infinity), []);
   const [order, setOrder] = useState(new Set());
-  const [deselecting, setDeselecting] = useState(false);
-
-  const activeShape = (event) => {
+  const activeShape = useCallback((event) => {
     const { target } = event;
     const index = target.getAttribute("data-index");
     const status = target.getAttribute("data-status");
@@ -22,47 +20,33 @@ function GridSelector() {
       const newOrder = new Set(prev);
       newOrder.add(index);
       if (newOrder.size === shape.filter(Boolean).length) {
-        startDeselecting();
+        deSelecting();
       }
       return newOrder;
     });
-  };
+  }, []);
 
-  function startDeselecting() {
-    setDeselecting(true);
-  }
-
-  useEffect(() => {
-    if (!deselecting) return;
-
+  function deSelecting() {
     const interval = setInterval(() => {
       setOrder((prev) => {
         const newOrder = new Set(prev);
         const firstItem = newOrder.values().next().value;
-
+        // from last lastItem=Array.from(newOrder).pop()
         if (firstItem !== undefined) {
           newOrder.delete(firstItem);
         }
-
-        if (newOrder.size === 0) {
-          clearInterval(interval);
-          setDeselecting(false);
-        }
-
         return newOrder;
       });
-    }, 300);
-
-    return () => clearInterval(interval);
-  }, [deselecting]);
-
-  console.log(order, "order");
-
+    }, 1000);
+    return () => {
+      clearInterval(interval);
+    };
+  }
   return (
     <div
       onClick={activeShape}
-      style={{ gridTemplateColumns: `repeat(${config[0].length}, 1fr)` }}
-      className="grid gap-10 w-56 m-auto"
+      style={{ gridTemplateColumns: `repeat(${config[0].length},1fr)` }}
+      class="grid gap-10 w-56 m-auto"
     >
       {shape.map((ele, index) => {
         const status = ele === 1 ? "visible" : "hidden";
@@ -73,17 +57,17 @@ function GridSelector() {
               background: isSelected ? "green" : "white",
               border: isSelected ? "none" : "",
             }}
-            className="border-2 border-black w-24 h-24"
+            class="border-2 border-black w-24 h-24"
             key={index}
             data-index={index}
             data-status={status}
           ></div>
         ) : (
-          <span key={index}></span>
+          <span></span>
         );
       })}
     </div>
   );
 }
 
-export default React.memo(GridSelector);
+export default GridSelector;
