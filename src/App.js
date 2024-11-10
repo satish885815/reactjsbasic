@@ -28,6 +28,7 @@ import ImageSlider from "./components/ImageSlider/ImageSlider";
 import ProgressBar from "./components/ProgressBar/ProgressBar";
 import GridSelector from "./components/Grid/GridSelector";
 import Pagination from "./components/Pagination/Pagination";
+import SearchUI from "./components/Search/SearchUI";
 
 function App() {
   const Box_Data = [
@@ -88,7 +89,8 @@ function App() {
       {/* <GridSelector /> */}
       {/* <StopWatch /> */}
       {/* <ReducerCounter /> */}
-      <Pagination />
+      {/* <Pagination /> */}
+      <SearchUI />
     </div>
   );
 }
