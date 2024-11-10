@@ -27,9 +27,7 @@ import MyComponent from "./components/MyComponet";
 import ImageSlider from "./components/ImageSlider/ImageSlider";
 import ProgressBar from "./components/ProgressBar/ProgressBar";
 import GridSelector from "./components/Grid/GridSelector";
-import StopWatch from "./components/StopWatch/StopWatch";
-import ReducerCounter from "./components/Reducer/ReducerCounter";
-import Deomo from "./Deomo";
+import Pagination from "./components/Pagination/Pagination";
 
 function App() {
   const Box_Data = [
@@ -90,7 +88,7 @@ function App() {
       {/* <GridSelector /> */}
       {/* <StopWatch /> */}
       {/* <ReducerCounter /> */}
-      <Deomo />
+      <Pagination />
     </div>
   );
 }
