@@ -29,6 +29,7 @@ import ProgressBar from "./components/ProgressBar/ProgressBar";
 import GridSelector from "./components/Grid/GridSelector";
 import Pagination from "./components/Pagination/Pagination";
 import SearchUI from "./components/Search/SearchUI";
+import Accordion from "./components/Accordion/Accordion";
 
 function App() {
   const Box_Data = [
@@ -90,7 +91,8 @@ function App() {
       {/* <StopWatch /> */}
       {/* <ReducerCounter /> */}
       {/* <Pagination /> */}
-      <SearchUI />
+      {/* <SearchUI /> */}
+      <Accordion/>
     </div>
   );
 }
